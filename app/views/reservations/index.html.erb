@@ -2,7 +2,8 @@
 
 <% @reservations.each do |reservation| %>
 <div>
-  <h3><%= link_to reservation.room.hotel.name, reservation.room.hotel %></h3>
+  <h3>Hotel: <%= link_to reservation.room.hotel.name, reservation.room.hotel %></h3>
+  <h3>Room: <%= link_to reservation.room.number, hotel_room_path(reservation.room.hotel, reservation.room) %></h3>
   <p>Confirmed on: <%= reservation.created_at %></p>
 </div>
 <% end %>
