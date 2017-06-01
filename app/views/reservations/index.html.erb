@@ -1,0 +1,6 @@
+<h2>Below is a list of all your reservations:</h2>
+
+<% @reservations.each do |reservation| %>
+  <h3><%= link_to reservation.room.hotel.name, reservation.room.hotel %></h3>
+  <p><%= reservation.created_at %></p>
+<% end %>

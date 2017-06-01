@@ -1,9 +1,13 @@
 class ReservationsController < ProtectedController
+  def index
+    @reservations = current_guest.reservations
+  end
+
   def create
     @reservation = Reservation.new(reservation_params)
 
     if @reservation.save
-      redirect_to hotels_path
+      redirect_to guest_reservations_path(current_guest)
     end
   end
 

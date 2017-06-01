@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   resources :reservations, only: [:create]
 
+  resources :guests do
+    resources :reservations, only: [:index]
+  end
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
