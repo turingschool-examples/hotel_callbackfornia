@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :rooms
   end
 
-  resources :guests
+  resources :reservations, only: [:create]
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

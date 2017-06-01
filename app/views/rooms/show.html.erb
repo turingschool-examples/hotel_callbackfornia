@@ -1,7 +1,19 @@
 <h1>Thanks for your interest in Room <%= @room.number %>!</h1>
 
-<h2>Below are all prior reservations that have been made for this room:</h2>
+<% unless @room.guests.empty? %>
+  <section>
+    <h2>Below are all prior reservations that have been made for this room:</h2>
 
-<% @room.guests.each do |guest| %>
-  <p> <%= "#{guest.first_name} #{guest.last_name}" %> </p>
+    <% @room.guests.each do |guest| %>
+      <p> <%= "#{guest.first_name} #{guest.last_name}" %> </p>
+    <% end %>
+  </section>
 <% end %>
+
+
+<section>
+  <%= form_for @reservation do |f| %>
+    <%= f.hidden_field :room_id, value: @room.id %>
+    <%= f.submit %>
+  <% end %>
+</section>
