@@ -1,0 +1,13 @@
+<header>
+  <h1>Welcome to Hotel <%= @hotel.name %></h1>
+  <h2>We're currently located in <%= @hotel.location %></h2>
+</header>
+
+<main>
+  <h3>Below are a list of all rooms available at this hotel.</h3>
+  <% @hotel.rooms.each do |room| %>
+    <ul>
+      <li><%= link_to room.number, [@hotel, room] %></li>
+    </ul>
+  <% end %>
+</main>
