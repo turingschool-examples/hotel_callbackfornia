@@ -1,4 +1,4 @@
-class RoomsController < ApplicationController
+class RoomsController < ProtectedController
   def index
     @rooms = Hotel.find(params[:hotel_id]).rooms
   end

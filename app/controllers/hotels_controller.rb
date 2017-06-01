@@ -1,4 +1,4 @@
-class HotelsController < ApplicationController
+class HotelsController < ProtectedController
   def index
     @hotels = Hotel.all
   end
