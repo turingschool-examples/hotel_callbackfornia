@@ -6,7 +6,10 @@
   <h3>Below are a list of all rooms available at this hotel.</h3>
   <% @rooms.each do |room| %>
     <ul>
-      <li><%= link_to room.number, [@hotel, room] %></li>
+      <li>
+        <%= link_to room.number, [@hotel, room] %>
+        <p>Status: <%= room.status %></p>
+      </li>
     </ul>
   <% end %>
 </main>

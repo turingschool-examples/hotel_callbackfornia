@@ -12,8 +12,12 @@
 
 
 <section>
-  <%= form_for @reservation do |f| %>
-    <%= f.hidden_field :room_id, value: @room.id %>
-    <%= f.submit %>
+  <% if @room.open? %>
+    <%= form_for @reservation do |f| %>
+      <%= f.hidden_field :room_id, value: @room.id %>
+      <%= f.submit %>
+    <% end %>
+  <% else %>
+    <h4>This room is currently booked.</h4>
   <% end %>
 </section>
