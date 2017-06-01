@@ -1,0 +1,26 @@
+<%= form_for(@guest) do |f| %>
+
+  <fieldset>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :password %>
+    <%= f.text_field :password %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.submit "Create Guest Account" %>
+  </fieldset>
+<% end %>
