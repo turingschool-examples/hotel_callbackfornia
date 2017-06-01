@@ -1,10 +1,10 @@
 <h1>Thanks for your interest in Room <%= @room.number %>!</h1>
 
-<% unless @room.guests.empty? %>
+<% unless @guests.empty? %>
   <section>
     <h2>Below are all prior reservations that have been made for this room:</h2>
 
-    <% @room.guests.each do |guest| %>
+    <% @guests.each do |guest| %>
       <p> <%= "#{guest.first_name} #{guest.last_name}" %> </p>
     <% end %>
   </section>

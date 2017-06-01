@@ -5,6 +5,7 @@ class RoomsController < ProtectedController
 
   def show
     @room = Room.find(params[:id])
+    @guests = @room.guests
     @reservation = Reservation.new
   end
 end
