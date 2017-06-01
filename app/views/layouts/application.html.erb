@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HotelCallbackfornia</title>
+    <title>Hotel Callbackfornia</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,19 @@
   </head>
 
   <body>
+    <nav class="navbar">
+      <ul>
+      <% if current_guest %>
+        <li><%= link_to "Sign Out", logout_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "Sign In", login_path %></li>
+        <li><%= link_to "Sign Up", new_guest_path %></li>
+      <% end %>
+      </ul>
+    </nav>
+
+    <h1>Welcome to Hotel Callbackfornia!</h1>
+
     <%= yield %>
   </body>
 </html>

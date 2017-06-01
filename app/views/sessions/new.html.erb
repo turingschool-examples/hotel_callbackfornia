@@ -1,0 +1,20 @@
+<h2>Please sign in below to get started.</h2>
+
+<%= form_for(:session, url: login_path) do |f| %>
+  <fieldset>
+    <%= f.label :username %>
+    <%= f.text_field :username %><br>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </fieldset>
+
+  <fieldset>
+      <%= f.submit "Sign In" %>
+  </fieldset>
+<% end %>
+
+
+<h2>Need to <%= link_to "Sign Up?", new_guest_path %></h2>
