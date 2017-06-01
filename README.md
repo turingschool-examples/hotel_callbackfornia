@@ -1,24 +1,22 @@
-# README
+# Hotel Callbackfornia
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Resources and Relationships
 
-Things you may want to cover:
+This Rails 5 application is setup with the following resources:
 
-* Ruby version
+* hotels
+* rooms
+* guests
+* reservations
 
-* System dependencies
+Hotels have many rooms.
+Rooms belong to hotels.
+Rooms have many guests, through reservations.
+Guests have many rooms, through reservations.
 
-* Configuration
+## Setup
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+bundle install
+bundle exec rake db:setup
+```
