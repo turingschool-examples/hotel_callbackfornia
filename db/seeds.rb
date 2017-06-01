@@ -1,7 +1,7 @@
 # create hotels
 10.times do
   hotel = Hotel.create!(
-    name: Faker::Company.name,
+    name: Faker::TwinPeaks.location,
     location: Faker::Address.state
   )
   puts "Hotel #{hotel.name} located in #{hotel.location} created."
