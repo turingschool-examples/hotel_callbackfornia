@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_guest
 
   def current_guest
-    @current_guest ||= Guest.find(session[:guest_id]) if session[:guest_id]
+    @current_guest ||= Guest.find(session[:guest_id]) unless session[:guest_id].nil?
   end
 end

@@ -13,6 +13,8 @@
       <ul>
       <% if current_guest %>
         <li><%= link_to "Sign Out", logout_path, method: :delete %></li>
+        <li><%= link_to "Hotels", hotels_path %></li>
+        <li><%= link_to "My Reservations", guest_reservations_path(current_guest) %></li>
       <% else %>
         <li><%= link_to "Sign In", login_path %></li>
         <li><%= link_to "Sign Up", new_guest_path %></li>
@@ -20,7 +22,7 @@
       </ul>
     </nav>
 
-    <h1>Welcome to Hotel Callbackfornia, <%= current_guest.first_name %>!</h1>
+    <h1>Welcome to Hotel Callbackfornia!</h1>
 
     <%= yield %>
   </body>

@@ -1,6 +1,6 @@
 # create hotels
 10.times do
-  hotel = Hotel.create(
+  hotel = Hotel.create!(
     name: Faker::Company.name,
     location: Faker::Address.state
   )
@@ -11,7 +11,7 @@ end
 # create rooms for hotels
 Hotel.all.each do |hotel|
   10.times do
-    room = Room.create(
+    room = Room.create!(
       number: Faker::Address.building_number,
       hotel_id: hotel.id
     )
@@ -21,10 +21,12 @@ end
 
 # create guests
 50.times do
-  guest = Guest.create(
+  guest = Guest.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    credit_card_number: Faker::Business.credit_card_number
+    credit_card_number: Faker::Business.credit_card_number,
+    username: Faker::Internet.user_name,
+    password: "password"
   )
   puts "Guest #{guest.first_name} #{guest.last_name} created."
 end
@@ -37,7 +39,7 @@ end
   guest = Guest.find(guest_ids.sample)
   room = Room.find(room_ids.sample)
 
-  rez = Reservation.create(
+  rez = Reservation.create!(
     room_id: room.id,
     guest_id: guest.id
   )

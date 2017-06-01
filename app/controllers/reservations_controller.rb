@@ -6,8 +6,11 @@ class ReservationsController < ProtectedController
   def create
     @reservation = Reservation.new(reservation_params)
 
-    if @reservation.save
-      redirect_to guest_reservations_path(current_guest)
+    if @reservation.room.open?
+      if @reservation.save
+        @reservation.room.booked!
+        redirect_to guest_reservations_path(current_guest)
+      end
     end
   end
 
